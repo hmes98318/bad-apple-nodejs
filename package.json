@@ -1,0 +1,15 @@
+{
+  "name": "bad-apple-nodejs",
+  "version": "1.0.0",
+  "description": "Play bad apple in Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "hmes98318",
+  "license": "MIT",
+  "dependencies": {
+    "ffmpeg-static": "^5.1.0",
+    "jimp": "^0.22.7"
+  }
+}
