@@ -5,8 +5,8 @@ The script uses [**FFmpeg**](https://ffmpeg.org/) to convert the video to a seri
 
 
 ## Installation
-Clone the repository or download the code files.  
-Install the dependencies by running `npm install` in the project directory.  
+1. Clone the repository or download the code files.  
+2. Install the dependencies by running `npm install` in the project directory.  
 
 
 ## Usage
