@@ -29,6 +29,7 @@ let totalFrame = 0;
     else {
         console.log('Clearing output directory');
         fs.rmSync(outDir, { recursive: true });
+        fs.mkdirSync(outDir);
         console.log('Output directory cleared');
     }
 
@@ -58,7 +59,7 @@ let totalFrame = 0;
         }
 
         totalFrame = framesFileCount(outDir);
-        playAsciiArt(totalFrame, fps);
+        //playAsciiArt(totalFrame, fps);
     });
 })();
 
