@@ -11,8 +11,8 @@ const videoFile = './videos/bad-apple.mp4';
 const outputDir = './output';
 const decoder = 'auto'; // Check available hwaccel options: ffmpeg -hwaccels
 
-const imageWidth = 160;
-const imageHeight = 70;
+const imageWidth = 90;
+const imageHeight = 30;
 const fps = 30;
 
 
