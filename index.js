@@ -38,7 +38,7 @@ let totalFrame = 0;
         console.log('Output directory cleared');
     }
 
-    // ffmpeg -i ./bad-apple.mp4 -vf "scale=iw/2:ih/2,eq=brightness=0.15:saturation=1.5" -f image2 ./output/frames-%05d.png
+    // ffmpeg -hwaccel auto -i ./bad-apple.mp4 -vf "scale=iw/2:ih/2,eq=brightness=0.15:saturation=1.5" -f image2 ./output/frames-%05d.png
     const cmd = `${ffmpegPath} -hwaccel ${decoder} -i ${video} -vf "scale=iw/2:ih/2,eq=brightness=0.15:saturation=1.5" -f image2 ${outDir}/frames-%05d.png`;
 
     console.log('Start extracting frames');
@@ -63,7 +63,7 @@ let totalFrame = 0;
         }
 
         totalFrame = framesFileCount(outDir);
-        //playAsciiArt(totalFrame, fps);
+        playAsciiArt(totalFrame, fps);
     });
 })();
 
