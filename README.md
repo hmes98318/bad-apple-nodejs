@@ -1,7 +1,7 @@
 # bad-apple-nodejs
 This is a Node.js script that plays the Bad Apple!!  
 
-The script uses **FFmpeg** to convert the video to a series of image frames, and then converts each frame to an ASCII image using a custom algorithm. The resulting ASCII art frames are then played back in the console.  
+The script uses [**FFmpeg**](https://ffmpeg.org/) to convert the video to a series of image frames, and then converts each frame to an ASCII image using a custom algorithm. The resulting ASCII art frames are then played back in the console.  
 
 
 ## Installation
