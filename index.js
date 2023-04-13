@@ -11,8 +11,8 @@ const videoFile = './videos/bad-apple.mp4';
 const outputDir = './output';
 const decoder = 'auto'; // Check available hwaccel options: ffmpeg -hwaccels
 
-const imageWidth = 90;
-const imageHeight = 30;
+const imageWidth = 160;
+const imageHeight = 70;
 const fps = 30;
 
 
@@ -103,6 +103,7 @@ async function playAsciiArt(totalFrame, fps) {
         }
 
         console.log('Buffering completed');
+        await confirm();
 
         let startTime = Date.now();
         let frameIndex = 0;
@@ -123,6 +124,7 @@ async function playAsciiArt(totalFrame, fps) {
             }
             else {
                 console.log('-- ENDED --');
+                process.exit(0);
             }
         }
         outputAsciiArt();
@@ -133,9 +135,22 @@ async function playAsciiArt(totalFrame, fps) {
 }
 
 
-
-
 const consoleOutputEditor = (frameCount) => {
     readline.cursorTo(process.stdout, 0);
-    process.stdout.write(`Frame converted: ${frameCount}/${totalFrame}`);
+    process.stdout.write(`Frames converted: ${frameCount}/${totalFrame}`);
 };
+
+
+const confirm = () => {
+    return new Promise((resolve, reject) => {
+        console.log('press any key to start playing.');
+
+        process.stdin.setRawMode(true);
+        process.stdin.resume();
+        process.stdin.once('data', () => {
+            process.stdin.setRawMode(false);
+            console.log('Starting process...');
+            resolve();
+        });
+    });
+}
