@@ -59,7 +59,7 @@ let totalFrame = 0;
         }
 
         totalFrame = framesFileCount(outDir);
-        //playAsciiArt(totalFrame, fps);
+        playAsciiArt(totalFrame, fps);
     });
 })();
 
