@@ -9,13 +9,18 @@ const Jimp = require('jimp');
 
 const videoFile = './videos/bad-apple.mp4';
 const outputDir = './output';
+const decoder = 'auto'; // Check available hwaccel options: ffmpeg -hwaccels
 
 const imageWidth = 90;
 const imageHeight = 30;
 const fps = 30;
 
-let totalFrame = 0;
 
+
+
+/*--------------------------------------------------------------------------------*/
+
+let totalFrame = 0;
 
 
 (() => {
@@ -33,9 +38,8 @@ let totalFrame = 0;
         console.log('Output directory cleared');
     }
 
-
     // ffmpeg -i ./bad-apple.mp4 -vf "scale=iw/2:ih/2,eq=brightness=0.15:saturation=1.5" -f image2 ./output/frames-%05d.png
-    const cmd = `${ffmpegPath} -i ${video} -vf "scale=iw/2:ih/2,eq=brightness=0.15:saturation=1.5" -f image2 ${outDir}/frames-%05d.png`;
+    const cmd = `${ffmpegPath} -hwaccel ${decoder} -i ${video} -vf "scale=iw/2:ih/2,eq=brightness=0.15:saturation=1.5" -f image2 ${outDir}/frames-%05d.png`;
 
     console.log('Start extracting frames');
     exec(cmd, (err, stdout, stderr) => {
@@ -59,7 +63,7 @@ let totalFrame = 0;
         }
 
         totalFrame = framesFileCount(outDir);
-        playAsciiArt(totalFrame, fps);
+        //playAsciiArt(totalFrame, fps);
     });
 })();
 
